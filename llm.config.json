@@ -1,0 +1,10 @@
+{
+  "text": {
+    "providers": [
+      { "name": "mistral", "model": "mistral-small-latest" },
+      { "name": "groq", "model": "llama3-8b-8192" },
+      { "name": "gemini", "model": "gemini-1.5-flash" },
+      { "name": "openrouter", "model": "mistralai/mistral-7b-instruct:free" }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "llm-api",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "llm-fallback-chain": "^0.1.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.6.22"
+  }
+}
