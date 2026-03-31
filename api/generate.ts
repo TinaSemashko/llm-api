@@ -1,15 +1,19 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { callWithFallback } from 'llm-fallback-chain';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import type { LLMConfig } from 'llm-fallback-chain';
 
-// Load config at cold start
-const config = JSON.parse(
-  readFileSync(join(process.cwd(), 'llm.config.json'), 'utf-8')
-);
+const config: LLMConfig = {
+  text: {
+    providers: [
+      { name: 'mistral', model: 'mistral-small-latest' },
+      { name: 'groq', model: 'llama3-8b-8192' },
+      { name: 'gemini', model: 'gemini-1.5-flash' },
+      { name: 'openrouter', model: 'mistralai/mistral-7b-instruct:free' },
+    ],
+  },
+};
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
