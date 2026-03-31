@@ -2,6 +2,7 @@
   "name": "llm-api",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "llm-fallback-chain": "^0.1.0"
   },
